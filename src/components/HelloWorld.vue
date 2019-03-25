@@ -34,7 +34,7 @@ export default {
       const that = this
       // 异步更新数据
       setTimeout(() => {
-        this.$axios.get('movie/in_theaters?count=' + this.count + '&start=' + this.start)
+        this.ajax.get('movie/in_theaters?count=' + this.count + '&start=' + this.start)
           .then(function (res) {
             that.start += 5
             that.loading = false
