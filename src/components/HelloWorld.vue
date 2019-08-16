@@ -34,11 +34,12 @@ export default {
       const that = this
       // 异步更新数据
       setTimeout(() => {
-        this.ajax.get('movie/in_theaters?count=' + this.count + '&start=' + this.start)
+        this.ajax.get('movie/in_theaters?apikey=0b2bdeda43b5688921839c8ecb20399b&count=' + this.count + '&start=' + this.start)
           .then(function (res) {
             that.start += 5
             that.loading = false
             that.list = that.list.concat(res.data.subjects)
+            window.scrollTo(0, document.documentElement.scrollTop + 375)
             if (that.list.length === res.data.total) {
               that.finished = true
             }
